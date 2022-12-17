@@ -40,6 +40,15 @@ $ pip install . # or pip install -e .
       - heti:
           disable_serve: false
     ```
+- 使用 pymdownx.arithmatex 的数学公式的话会提前加入空格会导致公式不渲染，所以需要忽略掉其生成的 .arithmatex 类：
+    ```yaml
+    plugins:
+      - heti:
+          extra_skipped_class:
+            - arithmatex
+    ```
+    - 但这样的话，数学公式左右的空格并不会进行处理
+    - 不过使用 js 的 heti 的话也是无法处理的，先放一放
 
 目前配置项配置的不多，用法啥的也以后再完善（~~咕咕咕~~
 
@@ -54,6 +63,7 @@ $ pip install . # or pip install -e .
 - [ ] 与 mkdocs-encryptcontent-plugin 加密页面兼容
 - [ ] 提高效率（？不知可不可行
 - [ ] 修 bug & 重构（~~99% 会鸽~~
+- [ ] 支持 pymdownx.arithmatex
 
 ## 注意事项
 与 mkdocs-encryptcontent-plugin 还没兼容，加密的页面目前不做处理（处理的话目前会卡死）。
