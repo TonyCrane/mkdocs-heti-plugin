@@ -8,6 +8,11 @@ from mkdocs.utils import copy_file
 from typing import Any, Dict, Optional, Literal
 
 from .utils.heti import heti
+from .utils.heti import (
+    HETI_NON_CONTIGUOUS_ELEMENTS,
+    HETI_SKIPPED_ELEMENTS,
+    HETI_SKIPPED_CLASS,
+)
 
 PLUGIN_DIR = os.path.dirname(os.path.realpath(__file__))
 HETI_CSS_DIR = os.path.join(PLUGIN_DIR, 'css/heti.css')
@@ -19,7 +24,10 @@ class HetiPlugin(BasePlugin):
     config_scheme = (
         ('enabled', config_options.Type(bool, default=True)),
         ('root_selector', config_options.Type(str, default="article")),
-        ('disable_serve', config_options.Type(bool, default=True))
+        ('disable_serve', config_options.Type(bool, default=False)),
+        ('extra_skipped_class', config_options.Type(list, default=[])),
+        ('extra_skipped_elements', config_options.Type(list, default=[])),
+        ('extra_non_contiguous_elements', config_options.Type(list, default=[])),
     )
 
     enabled = True
@@ -40,6 +48,9 @@ class HetiPlugin(BasePlugin):
             return config
         
         config["extra_css"] = ["css/heti.css"] + config["extra_css"]
+        HETI_SKIPPED_CLASS.extend(self.config.get('extra_skipped_class'))
+        HETI_SKIPPED_ELEMENTS.extend(self.config.get('extra_skipped_elements'))
+        HETI_NON_CONTIGUOUS_ELEMENTS.extend(self.config.get('extra_non_contiguous_elements'))
     
     def on_post_page(self, output: str, *, page: Page, config: config_options.Config) -> Optional[str]:
         if not self.enabled:
