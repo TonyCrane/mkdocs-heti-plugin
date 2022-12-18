@@ -24,7 +24,7 @@ class HetiPlugin(BasePlugin):
     config_scheme = (
         ('enabled', config_options.Type(bool, default=True)),
         ('root_selector', config_options.Type(str, default="article")),
-        ('disable_serve', config_options.Type(bool, default=False)),
+        ('disable_serve', config_options.Type(bool, default=True)),
         ('extra_skipped_class', config_options.Type(list, default=[])),
         ('extra_skipped_elements', config_options.Type(list, default=[])),
         ('extra_non_contiguous_elements', config_options.Type(list, default=[])),
