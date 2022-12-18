@@ -22,7 +22,7 @@ HETI_SKIPPED_ELEMENTS = [
     "br", "hr",
     "script", "style", "img", "video", "audio", "canvas", "svg", "map", "object",
     "input", "textarea", "select", "option", "optgroup", "button",
-    "pre", "code", "sup", "sub", "heti-spacing", "heti-close"
+    "pre", "code", "heti-spacing", "heti-close"
 ]
 HETI_SKIPPED_CLASS = [
     "heti-skip"
