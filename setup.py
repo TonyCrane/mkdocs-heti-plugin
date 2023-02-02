@@ -11,14 +11,14 @@ def read(fname):
 
 setup(
     name='mkdocs-heti-plugin',
-    version='0.0.1',
+    version='0.1.0',
     author='TonyCrane',
     author_email='me@tonycrane.cc',
-    description='A MkDocs plugin that uses heti to improve typesetting',
+    description='A MkDocs plugin that uses heti to improve Chinese typesetting',
     long_description=read('README.md'),
     long_description_content_type='text/markdown',
     keywords='mkdocs python markdown typesetting',
-    url='',
+    url='https://github.com/TonyCrane/mkdocs-heti-plugin',
     license='MIT',
     python_requires='>=3.5',
     install_requires=[
@@ -26,7 +26,7 @@ setup(
         'lxml',
     ],
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Intended Audience :: Information Technology',
         'License :: OSI Approved :: MIT License',

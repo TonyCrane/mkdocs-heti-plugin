@@ -1,8 +1,6 @@
 # mkdocs-heti-plugin
 
-> **Warning** 还在开发中，效率极低且可能存在 bug
-
-一个使用 [heti](https://github.com/sivan/heti) 来优化 mkdocs 正文排版的插件。
+一个使用 [heti](https://github.com/sivan/heti) 来优化 mkdocs 中文正文排版的插件。
 
 具体表现在：
 
@@ -20,7 +18,12 @@ heti 原本是跑在前端的，不过在加载出页面到 heti 处理好之间
 如果可以忍受在前端处理的话可以看这个 commit：[TonyCrane/note@`5a0259`](https://github.com/TonyCrane/note/commit/5a02592e23bbf756ab02e4452f83eab80d694768)
 
 ## 安装
-还在开发中，所以没有发布到 pypi，~~但你要想用我也不拦着~~，可以手动安装：
+可以通过 pypi 直接安装：
+```shell
+$ pip install mkdocs-heti-plugin
+```
+
+也可以从源码安装
 
 ```shell
 $ git clone https://github.com/TonyCrane/mkdocs-heti-plugin.git
@@ -61,8 +64,6 @@ $ pip install . # or pip install -e .
 
 ### TODO
 - [ ] 与 mkdocs-encryptcontent-plugin 加密页面兼容
-- [ ] 提高效率（？不知可不可行
-- [ ] 修 bug & 重构（~~99% 会鸽~~
 - [ ] 支持 pymdownx.arithmatex
 
 ## 注意事项
