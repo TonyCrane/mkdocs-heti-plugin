@@ -17,7 +17,7 @@ from .utils.heti import (
 PLUGIN_DIR = os.path.dirname(os.path.realpath(__file__))
 HETI_CSS_DIR = os.path.join(PLUGIN_DIR, 'css/heti.css')
 
-with open(HETI_CSS_DIR, 'r') as file:
+with open(HETI_CSS_DIR, 'r', encoding='utf-8') as file:
     HETI_CSS = file.read()
 
 class HetiPlugin(BasePlugin):
