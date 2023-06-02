@@ -48,7 +48,7 @@ class Finder:
         d = dict()
         idx = 1
         if len(match.groups()) != 1:
-            for i in range(3):
+            for i in range(len(match.groups())):
                 if match.group(i + 1):
                     idx = i + 1
         d["text"] = match.group(idx)
