@@ -46,9 +46,14 @@ class Finder:
         if not match.group():
             raise Exception("cannot handle zero-length matches")
         d = dict()
-        d["text"] = match.group(1)
-        d["endIndex"] = characterOffset + match.end(1)
-        d["startIndex"] = characterOffset + match.start(1)
+        idx = 1
+        if len(match.groups()) != 1:
+            for i in range(3):
+                if match.group(i + 1):
+                    idx = i + 1
+        d["text"] = match.group(idx)
+        d["endIndex"] = characterOffset + match.end(idx)
+        d["startIndex"] = characterOffset + match.start(idx)
         d["index"] = matchIndex
         d["match"] = match
         return d
@@ -147,7 +152,11 @@ class Finder:
                 portionIndex = 0
                 if match is None:
                     break
-            elif (not doAvoidNode) and (hasattr(curNode, "children") or hasattr(curNode, "next_sibling")):
+            elif (
+                (not doAvoidNode) and 
+                ((hasattr(curNode, "children") and len(list(curNode.children)) > 0) or 
+                 (hasattr(curNode, "next_sibling") and curNode.next_sibling))
+            ):
                 if hasattr(curNode, "children") and len(list(curNode.children)) > 0:
                     nodeStack.append(curNode)
                     curNode = list(curNode.children)[0]
@@ -156,7 +165,7 @@ class Finder:
                 continue
                 
             while True:
-                if hasattr(curNode, "next_sibling") and curNode.next_sibling:
+                if hasattr(curNode, "next_sibling") and curNode.next_sibling != None:
                     curNode = curNode.next_sibling
                     break
                 curNode = nodeStack.pop()
