@@ -1,4 +1,5 @@
 import os
+import re
 
 from mkdocs.config import config_options
 from mkdocs.plugins import BasePlugin
@@ -64,7 +65,28 @@ class HetiPlugin(BasePlugin):
         
         if hasattr(page, 'encrypted'):
             return
-        return heti(output, self.config.get('root_selector'))
+
+        # **temporarily fix**
+        # by replacing <kbd> tag with sth. like HETIkbdSTART0HETIkbdEND and remembering the content
+        # then replace them after heti's processing
+        # so is .arithmatex
+        kbd_content = []
+        while match := re.search(r"<kbd>(.*?)</kbd>", output):
+            kbd_content.append(match.group(1))
+            output = output[:match.start()] + f"HETIkbdSTART{len(kbd_content) - 1}HETIkbdEND" + output[match.end():]
+        math_content = []
+        while match := re.search(r"<span class=\"arithmatex\">(.*?)</span>", output):
+            math_content.append(match.group(1))
+            output = output[:match.start()] + f"HETImathSTART{len(math_content) - 1}HETImathEND" + output[match.end():]
+        
+        html = heti(output, self.config.get('root_selector'))
+
+        for i in range(len(kbd_content)):
+            html = html.replace(f"HETIkbdSTART{i}HETIkbdEND", f"<kbd>{kbd_content[i]}</kbd>")
+        for i in range(len(math_content)):
+            html = html.replace(f"HETImathSTART{i}HETImathEND", f"<span class=\"arithmatex\">{math_content[i]}</span>")
+        
+        return html
 
     def on_post_build(self, config: Dict[str, Any], **kwargs) -> None:
         if not self.enabled:

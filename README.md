@@ -52,6 +52,7 @@ $ pip install . # or pip install -e .
     ```
     - 但这样的话，数学公式左右的空格并不会进行处理
     - 不过使用 js 的 heti 的话也是无法处理的，先放一放
+    - **注意**，目前的 master 版本是可以正常处理 arithmatex 的，但解决方案比较蠢，不清楚是否有 bug，先用一段时间再 release
 
 目前配置项配置的不多，用法啥的也以后再完善（~~咕咕咕~~
 
@@ -64,7 +65,7 @@ $ pip install . # or pip install -e .
 
 ### TODO
 - [ ] 与 mkdocs-encryptcontent-plugin 加密页面兼容
-- [ ] 支持 pymdownx.arithmatex
+- [x] 支持 pymdownx.arithmatex
 
 ## 注意事项
 与 mkdocs-encryptcontent-plugin 还没兼容，加密的页面目前不做处理（处理的话目前会卡死）。
