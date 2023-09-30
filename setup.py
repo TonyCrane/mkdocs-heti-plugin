@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name='mkdocs-heti-plugin',
-    version='0.1.5',
+    version='0.1.6',
     author='TonyCrane',
     author_email='me@tonycrane.cc',
     description='A MkDocs plugin that uses heti to improve Chinese typesetting',
