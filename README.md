@@ -43,16 +43,6 @@ $ pip install . # or pip install -e .
       - heti:
           disable_serve: false
     ```
-- 使用 pymdownx.arithmatex 的数学公式的话会提前加入空格会导致公式不渲染，所以需要忽略掉其生成的 .arithmatex 类：
-    ```yaml
-    plugins:
-      - heti:
-          extra_skipped_class:
-            - arithmatex
-    ```
-    - 但这样的话，数学公式左右的空格并不会进行处理
-    - 不过使用 js 的 heti 的话也是无法处理的，先放一放
-    - **注意**，目前的 master 版本是可以正常处理 arithmatex 的，但解决方案比较蠢，不清楚是否有 bug，先用一段时间再 release
 
 目前配置项配置的不多，用法啥的也以后再完善（~~咕咕咕~~
 
