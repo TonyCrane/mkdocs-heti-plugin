@@ -16,7 +16,7 @@ HETI_NON_CONTIGUOUS_ELEMENTS = [
     "script", "style", "img", "video", "audio", "canvas", "svg", "map", "object", 
     "input", "textarea", "select", "option", "optgroup", "button", 
     "table", "tbody", "thead", "th", "tr", "td", "caption", "col", "tfoot", "colgroup",
-    "ins", "del", "s", "em"
+    "ins", "del", "s", "em", "strong"
 ]
 HETI_SKIPPED_ELEMENTS = [
     "br", "hr",
