@@ -46,9 +46,9 @@ REG_BD_END = rf"{REG_BD_STOP}{REG_BD_OPEN}{REG_BD_CLOSE}"
 REG_BD_HALF_OPEN = r"“‘"
 REG_BD_HALF_CLOSE = r"”’"
 REG_BD_HALF_START = rf"{REG_BD_HALF_OPEN}{REG_BD_HALF_CLOSE}"
-REG_BD_HALF = rf".*?([{REG_BD_STOP}])(?=[{REG_BD_START}])|([{REG_BD_OPEN}])(?=[{REG_BD_OPEN}])|([{REG_BD_CLOSE}])(?=[{REG_BD_END}])"
-REG_BD_QUARTER = rf".*?([{REG_BD_SEP}])(?=[{REG_BD_OPEN}])|([{REG_BD_CLOSE}])(?=[{REG_BD_SEP}])"
-REG_BD_QUARTER_EXTRA = rf".*?([{REG_BD_STOP}])(?=[{REG_BD_HALF_START}])|([{REG_BD_HALF_OPEN}])(?=[{REG_BD_OPEN}])"
+REG_BD_HALF = rf".*?(([{REG_BD_STOP}])(?=[{REG_BD_START}])|([{REG_BD_OPEN}])(?=[{REG_BD_OPEN}])|([{REG_BD_CLOSE}])(?=[{REG_BD_END}]))"
+REG_BD_QUARTER = rf".*?(([{REG_BD_SEP}])(?=[{REG_BD_OPEN}])|([{REG_BD_CLOSE}])(?=[{REG_BD_SEP}]))"
+REG_BD_QUARTER_EXTRA = rf".*?(([{REG_BD_STOP}])(?=[{REG_BD_HALF_START}])|([{REG_BD_HALF_OPEN}])(?=[{REG_BD_OPEN}]))"
 
 # compiled RegEx pattern
 COMPILED_REG_CJK_FULL = re.compile(REG_CJK_FULL, re.U)
